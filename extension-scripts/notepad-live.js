@@ -6,7 +6,12 @@ $ui.render({
       props: {
         url: "http://notepad.live/"
       },
-      layout:$layout.fill
+      layout:$layout.fill,
+      events: {
+        didClose: function(sender) {
+          $clipboard.save($props.url)
+        }
+      }
     }
   ]
 })
